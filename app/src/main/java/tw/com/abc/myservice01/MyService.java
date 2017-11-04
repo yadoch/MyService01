@@ -12,7 +12,8 @@ import java.util.TimerTask;
 
 public class MyService extends Service {
     private Timer timer;
-    private int n;
+
+    private int n=10;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -22,9 +23,9 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent, flags, startId);
         n=intent.getIntExtra("n",n);
 
+        return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
@@ -49,7 +50,7 @@ public class MyService extends Service {
         @Override
         public void run() {
             int rand = (int)(Math.random()*n);
-            Log.i("geoff",);
+            Log.i("geoff","rand:"+rand);
         }
     }
 }
